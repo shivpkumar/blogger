@@ -18,6 +18,13 @@
   <title></title>
 </head>
 <body>
-  <%= yield %>
+  <header>
+    <% if logged_in? %>
+      <a href='/session/<%= @current_user.id %>'>Logout</a><br><br>
+    <% end %>
+  </header>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
