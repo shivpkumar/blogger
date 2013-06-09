@@ -4,7 +4,7 @@ get '/' do
   erb :index
 end
 
-post '/searches' do
+get '/search' do
   @type = params[:type]
   @term = params[:term]
   @results = []
