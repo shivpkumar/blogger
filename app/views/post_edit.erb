@@ -1,0 +1,11 @@
+<p>Edit post</p>
+<div id="edit_post">
+  <form id="edit_post_form" action="/posts/<%= @post.id %>/edit" method="POST">
+    <ul>
+      <li><input type="text" name="post[title]" value="<%= @post.title %>"></li>
+      <li><textarea rows="20" cols="50" name="post[description]"><%= @post.description %></textarea></li>
+      <li><textarea rows="1" cols="50" name="tags"><%= @tags %></textarea></li>
+      <li><input type="submit" value="Update Post"></li>
+    </ul>
+  </form>
+</div>

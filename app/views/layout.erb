@@ -19,9 +19,20 @@
 </head>
 <body>
   <header>
+    <a href='/'>Home</a>
     <% if logged_in? %>
-      <a href='/session/<%= @current_user.id %>'>Logout</a><br><br>
+      <a href='/sessions/<%= @current_user.id %>/delete'>Logout</a>
+      <a href='/posts/new'>Create a new post</a>
     <% end %>
+
+    <form id="search_box" action="/searches" method="POST">
+      <select name="type">
+        <option value="email">Email</option>
+        <option value="tag">Tag</option>
+      </select>
+      <input type="text" name="term">
+      <input type="submit" value="Search">
+    </form>
   </header>
   <div class="container">
     <%= yield %>

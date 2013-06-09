@@ -1,0 +1,14 @@
+<h1><%= @post.title %></h1>
+<h4>Posted by: <a href='/users/<%= @post.user.id %>'><%= @post.user.email %></a></h4>
+
+<% if current_user == @post.user %>
+
+  <a href='/posts/<%= @post.id %>/edit'>Edit post</a>
+  <a href='/posts/<%= @post.id %>/delete'>Delete post</a><br><br>
+
+<% end %>
+
+<p><b>Tags:</b> <%= @tags %></p><br>
+
+<h3>Description</h3>
+<p><%= @post.description %></p>

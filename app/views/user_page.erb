@@ -1,0 +1,12 @@
+<h1><%= @user.email %></h1>
+
+<% if current_user == @user %>
+  <a href='/posts/new'>Create a new post</a><br><br>
+<% end %>
+
+<h3>List of all posts:</h3>
+<ul>
+  <% @user.posts.reverse.each do |post| %>
+    <li><a href="/posts/<%= post.id %>"><%= post.title %></a></li>
+  <% end %>
+</ul>

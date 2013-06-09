@@ -1,0 +1,11 @@
+<p>Create a new post!</p>
+<div id="new_post">
+  <form id="new_post_form" action="/posts" method="POST">
+    <ul>
+      <li><input type="text" name="post[title]" placeholder="title"></li>
+      <li><textarea rows="20" cols="50" name="post[description]" placeholder="description"></textarea></li>
+      <li><textarea rows="1" cols="50" name="tags" placeholder="tags"></textarea></li>
+      <li><input type="submit" value="Create Post">
+    </ul>
+  </form>
+</div>

@@ -1,13 +1,22 @@
-<h1>Welcome to JankyBlog!</h1>
-
-<% if logged_in? %>
-
-  # show something for logged-in user
-
+<% if @type == 'homepage' %>
+  <h1>Welcome to JankyBlog!</h1>
+  <% if !logged_in? %>
+    <%= erb :_signup_box %><br>
+    <%= erb :_login_box %>
+  <% end %>
 <% else %>
-  
-  <%= erb :_signup_box %><br>
-  <%= erb :_login_box %>
-
+  <h1>Search Results</h1>
 <% end %>
 
+<% if @type == 'homepage' %>
+  <br><h3>Recent posts:</h3>
+<% else %>
+  <br><p>Posts where <b><%= @type %></b> is "<b><%= @term %></b>":</p>
+<% end %>
+
+<ul>
+  <% @results.reverse.each do |post| %>
+    <li><a href="/posts/<%= post.id %>"><%= post.title %></a><br>
+        (<%= post.user.email %>) <%= Tag.arrayify(post.tags) %></li><br>
+  <% end %>
+</ul>

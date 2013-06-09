@@ -13,10 +13,11 @@ class CreateTables < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.text :description
+      t.references :user
       t.timestamps
     end
 
-    create_table :post_tags do |t|
+    create_table :posts_tags do |t|
       t.references :post, :tag
     end
   end
